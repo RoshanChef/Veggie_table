@@ -1,0 +1,521 @@
+{% load static %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .grid-container {
+            display: inline-block;
+            margin: 5px auto;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+
+
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            height: 300px;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            position: inherit;
+        }
+
+
+        .card-title {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .card-description {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .card-price {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #e74c3c;
+        }
+
+        .add-to-cart-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: .95rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Navbar ... */
+        /* @font-face {
+            font-family: 'codropsicons';
+            font-weight: normal;
+            font-style: normal;
+        } */
+
+        .a {
+            text-decoration: none;
+        }
+
+        .container-navbar>section {
+            margin: 0 auto;
+            padding: .9em 1em;
+            padding-top: .2em;
+            text-align: center;
+        }
+
+        .color-8 {
+            background: #fff;
+            height: 60%;
+        }
+
+        @media screen and (max-width: 5em) {
+
+            .codrops-icon span {
+                display: none;
+            }
+
+        }
+
+        *,
+        *:after,
+        *::before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        nav a {
+            position: relative;
+            display: inline-block;
+            margin: 0 15px;
+            outline: none;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 100;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+            font-size: .8em;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            outline: none;
+        }
+
+        .cl-effect-7 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Effect 7: second border slides up */
+        .cl-effect-7 a {
+            padding: 12px 10px 10px;
+            color: #566473;
+            text-shadow: none;
+            font-weight: 700;
+        }
+
+        .cl-effect-7 a::before,
+        .cl-effect-7 a::after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: orange;
+            content: '';
+            -webkit-transition: -webkit-transform 0.3s;
+            -moz-transition: -moz-transform 0.3s;
+            transition: transform 0.3s;
+            -webkit-transform: scale(0.85);
+            -moz-transform: scale(0.85);
+            transform: scale(0.85);
+        }
+
+        .cl-effect-7 a::after {
+            opacity: 0;
+            -webkit-transition: top 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+            -moz-transition: top 0.3s, opacity 0.3s, -moz-transform 0.3s;
+            transition: top 0.3s, opacity 0.3s, transform 0.3s;
+        }
+
+        .cl-effect-7 a:hover::before,
+        .cl-effect-7 a:hover::after,
+        .cl-effect-7 a:focus::before,
+        .cl-effect-7 a:focus::after {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .cl-effect-7 a:hover::after,
+        .cl-effect-7 a:focus::after {
+            top: 0%;
+            opacity: 1;
+        }
+
+
+        /* Navbar Complete ... */
+
+        .grid-container {
+
+            display: inline-block;
+            margin: 5px auto;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+
+        .card1 {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card1-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+
+        .card1-title {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+
+        .card1-description {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .card1-price {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #e74c3c;
+        }
+
+        .add-to-cart-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #2980b9;
+        }
+
+
+        /* end map section */
+
+        /* info section */
+        .info_section ul {
+            padding: 0;
+        }
+
+        .info_section ul li {
+            list-style-type: none;
+            margin: 3px 0;
+
+        }
+
+        .info_section h5 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .info_section .social-box {
+            margin: 25px 0;
+        }
+
+        .info_section .social-box img {
+            width: 35px;
+            margin-right: 5px;
+            transition: all 1.2s;
+        }
+
+        .info_section .social-box img:hover {
+            width: 45px;
+            margin-right: 5px;
+        }
+
+
+        .info_section .form_container input {
+            width: 225px;
+            height: 30px;
+        }
+
+        .info_section .form_container button {
+            background-color: #fc5d35;
+            border: none;
+            outline: none;
+            color: #fff;
+            padding: 5px 30px;
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        .container_footer {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .row {
+            background-color: white;
+            display: flex;
+            column-gap: 99px;
+            margin: 0 auto;
+        }
+
+        .container_footer {
+            background-color: white;
+            padding: 20px;
+        }
+
+        /* end info section */
+        /* tasty section */
+
+        .tasty_section {
+            width: 100%;
+            height: 500px;
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .tasty_section h2 {
+            font-size: 125px;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        /* end tasty section */
+
+
+        /* scroll bar */
+
+        .scroll-up {
+            position: fixed;
+            right: 0.5%;
+            bottom: 3%;
+            cursor: pointer;
+        }
+
+        .up-arrow {
+            width: 3rem;
+            height: 3rem;
+        }
+
+
+        /* dark mode */
+        /* .checkbox {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .label {
+            width: 30px;
+            height: 19px;
+            background-color: #313131;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 30px;
+            padding: 6px;
+            position: relative;
+        }
+
+        .switcher {
+            background-color: orange;
+            position: absolute;
+            top: 5px;
+            left: 2px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+        }
+
+        .moon {
+            color: #ffa502;
+        }
+
+        .sun {
+            color: #ff4757;
+        }
+
+        .checkbox:checked+.label .switcher {
+            transform: translateX(24px);
+        }
+
+        body.dark {
+            background-color: #1e272e;
+        }
+
+        body.dark .bar {
+            background-color: orange;
+        }
+
+        body.dark p {
+            color: #fff;
+        }
+
+        body.dark h3 {
+            color: #fff;
+        }
+
+        body.dark nav {
+            background-color: #1e272e;
+            box-shadow: 2px 3px 2px #111010;
+        }
+
+        body.dark ul a{
+            background-color: #1e272e;
+        }
+
+        body.dark .name {
+            color: var(--primary-color);
+        }
+
+        body.dark .role {
+            color: var(--secondary-color);
+        }
+
+        body.dark footer {
+            color: #fff;
+            border-top: 1px solid #111010;
+            box-shadow: 0px -2px 3px #111010;
+        } */
+
+
+        /* dark mode end */
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegitables !!</title>
+</head>
+
+
+<body>
+
+    <!-- /container-Navbar-->
+
+    <div class="container-navbar">
+        <section class="color-8">
+
+            <nav class="cl-effect-7">
+                <h3 style="color: orangered; line-height: 100%;">Fresh Vegitable shop </h3>
+                <div class="cl-box">
+                    <a href="/">Home</a>
+                    <a href="/product/">Veggies</a>
+                    <!-- <a href="">Download</a> -->
+                    <a href="/contact/">Contact Us</a>
+                    {% if request.session.email %}
+                    <a href="{% url 'orderCart' %}">Myorder</a>
+                    <a href="{% url 'profile' %}">Profile</a>
+                    <a href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                    <a href="/login/">Login</a>
+                    {% endif %}
+                </div>
+                <!--  
+                <div class="theme-switch" style="display: inline;">
+                    <input type="checkbox" class="checkbox" id="checkbox" />
+                    <label for="checkbox" class="label">
+                        <ion-icon name="partly-sunny-outline" class="sun"></ion-icon>
+                        <ion-icon name="moon-outline" class="moon"></ion-icon>
+                        <div class="switcher"></div>
+                    </label>
+                </div> -->
+            </nav>
+        </section>
+    </div>
+    <i class="scroll-up" id="scroll-up"><img src="{% static 'images/arrow.png' %}" class="socicon up-arrow"
+            alt="up-arrow" /></i>
+
+
+    <script>
+        const scrollUp = document.querySelector("#scroll-up");
+
+        scrollUp.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+            });
+        });
+
+        const checkbox = document.querySelector("#checkbox");
+
+        checkbox.addEventListener("change", () => {
+            // Toggle website theme
+            document.body.classList.toggle("dark");
+        });
+    </script>
+
+
+
+    {%block abc%}
+
+    {% endblock %}
+
+
+
+</body>
+
+</html>

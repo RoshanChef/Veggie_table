@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{%block abc%}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Responsive Fruit Website Using HTML and CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href={% static "css/index.css" %} rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+    <div id="box">
+
+
+
+        <div class="container" >
+            <div class="container-inner">
+
+                {% for i in product %}
+                <div class="box pbox wow animate__animated animate__fadeInUp" data-wow-delay=".7s " style="background-color: white; padding: 0 0 1rem; box-shadow: .5rem .5rem 1rem rgba(190, 190, 190, 0.712);"> 
+                    <div class="p-content">
+                        <a href="{% url 'ProductDetails' i.id %}">
+                            <img src="{{i.image.url}}" alt="Product Image" class="card1-image">
+                            <h2 class="card1-title">{{i.Name}}</h2>
+                        </a>
+                        <div class="card1-price">Rs.{{i.Price}}</div>
+                        {% comment %} <button type="button" class="p-btn view-details"><i class="fa fa-eye"></i> View
+                            details</button>
+                        </a>
+                        <button type="button" class="p-btn add-card"><i class="fa fa-shopping-cart"></i> View
+                            details</button> {% endcomment %}
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+</body>

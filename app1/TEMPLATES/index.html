@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{%block abc%}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Responsive Fruit Website Using HTML and CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href={% static "css/index.css" %} rel="stylesheet">
+
+    <!-- ==================== CSS Libraries Used ================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+        integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<section class="image-slider">
+    <div class="captions">
+        <h1 class="wow animate__animated animate__fadeInUp" data-wow-delay=".3s">Give a Hoot! Eat More Fruit</h1>
+        <p class="wow animate__animated animate__fadeInUp" data-wow-delay=".8s">A pearl of health hidden in a fruit.
+            A jewel of health, <br>
+            hidden in a vegetable. Eat fruit to be cute.</p>
+        <div class="button wow animate__animated animate__fadeInUp" data-wow-delay="1s">
+            <a href={% url "veggi" %}>
+            <button type="button" class="btn-1">Products</button>
+            </a>
+            <button type="button" class="btn-2">Services</button>
+        </div>
+    </div>
+
+    <div class="myslider">
+        <img src={% static "images/slider3.png" %}  width="100%">
+    </div>
+</section>
+
+
+
+
+   <!-- ===================== Features Section Start =================== -->
+
+   <section class="features" style="background-image: url({% static "images/bg-icon.png" %});">
+    <div class="h-container">
+        <div class="header wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+            <h1>Our Features</h1>
+            <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit.
+                Ipsum diam justo sed rebum vero dolor duo.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-inner">
+            <div class="box wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+                <div class="b-content">
+                    <img src={% static "images/icon-1.png" %}>
+                    <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit.
+                        Ipsum diam justo sed vero dolor duo.</p>
+                    <button type="button" class="r-more">Read More</button>
+                </div>
+            </div>
+
+            <div class="box wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+                <div class="b-content">
+                    <img src={% static "images/icon-2.png" %}>
+                    <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit.
+                        Ipsum diam justo sed vero dolor duo.</p>
+                    <button type="button" class="r-more">Read More</button>
+                </div>
+            </div>
+
+            <div class="box wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
+                <div class="b-content">
+                    <img src={% static "images/icon-3.png" %}>
+                    <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit.
+                        Ipsum diam justo sed vero dolor duo.</p>
+                    <button type="button" class="r-more">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== Features Section End =================== -->
+
+
+    <!-- ===================== Product Section start =================== -->
+
+    <section class="products">
+        <div class="p-container">
+            <div class="p-header wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+                <h1>Our Products</h1>
+                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit.
+                    Ipsum diam justo sed rebum vero dolor duo.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-inner">
+            
+                {% for i in data %}
+                <div class="box pbox wow animate__animated animate__fadeInUp" data-wow-delay=".7s">
+                    <div class="p-content">
+                        <img src="{{i.image.url}}" alt="Product Image" class="card-image" >
+                        <h2 class="card-title">{{i.Category_name}}</h2>
+                        <a href="product-filter/{{i.id}}/">
+                        <button type="button" class="p-btn view-details"><i class="fa fa-eye"></i> View details</button>
+                    </a>
+                        <button type="button" class="p-btn add-card"><i class="fa fa-shopping-cart"></i> View
+                            details</button>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="p-button wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+            <button type="button" class="btn">Browse More Products</button>
+        </div>
+    </section>
+
+    <!-- ===================== Product Section End =================== -->
+
+
+
+<!-- tasty section -->
+<div class="space" style="margin-top: 20px; margin-bottom: 20px;"></div>
+<section class="tasty_section" style=" background-image: url({% static 'images/tasty-image.png' %}); ">
+    <div class="container_fluid">
+        <h2>
+            Very Fresh Fruits
+        </h2>
+    </div>
+</section>
+<div class="space" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+<!-- end tasty section -->
+
+
+<!-- end map section -->
+
+<section class="info_section layout_padding">
+    <div class="container_footer">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>
+                    Fruits
+                </h5>
+                <ul>
+                    <li>
+                        Banana
+                    </li>
+                    <li>
+                        Mango
+                    </li>
+                    <li>
+                        guavava
+                    </li>
+                    <li>
+                        slightly
+                    </li>
+                    <li>
+                        believable. If you
+                    </li>
+                    <li>
+                        are going to use
+                    </li>
+                    <li>
+                        a passage of
+                    </li>
+                    <li>
+                        Lorem Ipsum,
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>
+                    Vegitables
+                </h5>
+                <ul>
+                    <li>
+                        randomised
+                    </li>
+                    <li>
+                        words which
+                    </li>
+                    <li>
+                        don't look even
+                    </li>
+                    <li>
+                        slightly
+                    </li>
+                    <li>
+                        believable. If you
+                    </li>
+                    <li>
+                        are going to use
+                    </li>
+                    <li>
+                        a passage of
+                    </li>
+                    <li>
+                        Lorem Ipsum,
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>
+                    Services
+                </h5>
+                <ul>
+                    <li>
+                        COD
+                    </li>
+                    <li>
+			Home Delivery
+                    </li>
+                    <li>
+                        Replacement
+                    </li>
+                    <li>
+                        slightly
+                    </li>
+                    <li>
+                        believable. If you
+                    </li>
+                    <li>
+                        are going to use
+                    </li>
+                    <li>
+                        a passage of
+                    </li>
+ 
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <div class="social_container">
+                    <h5>
+                        Follow Us
+                    </h5>
+                    <div class="social-box">
+                        <a href="">
+                            <img src="{% static 'images/fb.png' %}" alt="">
+                            <img src="{% static 'images/youtube.png'%}" alt="">
+
+                        </a>
+
+                        <a href="">
+                            <img src="{% static 'images/twitter.png' %}" alt="">
+                        </a>
+                        <a href="">
+                            <img src="{% static 'images/linkedin.png' %}" alt="">
+                        </a>
+                        <a href="">
+                            <img src="{% static 'images/instagram.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% comment %} 5555555 {% endcomment %}
+
+
+{% endblock %}

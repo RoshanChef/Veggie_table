@@ -1,0 +1,8 @@
+# Runserver
+python manage.py runserver
+
+
+
+ 
+python manage.py makemigrations appName // for db changes
+python manage.py migrate appName // for send db to dbsqlite
